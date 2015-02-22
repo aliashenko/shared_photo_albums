@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: 'users#index'
 
-  devise_for :users
+  devise_for :user
 
-  get 'users', to: 'users#index'
+  resources :albums
 end
