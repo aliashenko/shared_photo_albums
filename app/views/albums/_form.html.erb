@@ -19,6 +19,12 @@
     <%= f.label :description %><br>
     <%= f.text_field :description %>
   </div>
+  <%= f.fields_for :photos do |p| %>
+    <div class="field">
+      <%= p.label :image %><br>
+      <%= p.file_field :image, :multiple => true, name: "photos[image][]" %>
+    </div>
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>

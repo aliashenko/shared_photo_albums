@@ -6,10 +6,12 @@ class AlbumsController < ApplicationController
   end
 
   def show
+    @photos = @album.photos.all
   end
 
   def new
     @album = Album.new
+    @photo = @album.photos.build
   end
 
   def edit
@@ -21,6 +23,14 @@ class AlbumsController < ApplicationController
 
     respond_to do |format|
       if @album.save
+        if params[:photos]
+          params[:photos]['image'].each do |a|
+            @photo = @album.photos.build(:image => a, :album_id => @album.id)
+            unless @photo.save
+              format.json { render json: @photo.errors, status: :unprocessable_entity }
+            end
+          end
+        end
         format.html { redirect_to @album, notice: 'Album was successfully created.' }
         format.json { render :show, status: :created, location: @album }
       else
@@ -33,6 +43,14 @@ class AlbumsController < ApplicationController
   def update
     respond_to do |format|
       if @album.update(album_params)
+        if params[:photos]
+          params[:photos]['image'].each do |a|
+            @photo = @album.photos.build(:image => a, :album_id => @album.id)
+            unless @photo.save
+              format.json { render json: @photo.errors, status: :unprocessable_entity }
+            end
+          end
+        end
         format.html { redirect_to @album, notice: 'Album was successfully updated.' }
         format.json { render :show, status: :ok, location: @album }
       else
@@ -58,6 +76,6 @@ class AlbumsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def album_params
-      params.require(:album).permit(:name, :description)
+      params.require(:album).permit(:name, :description, photos_attributes: [:id, :album_id, :image])
     end
 end
