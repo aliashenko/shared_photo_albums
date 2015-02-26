@@ -6,9 +6,19 @@
 </p>
 
 <p>
+  <strong>Description:</strong>
+  <%= @album.description %>
+</p>
+
+<p>
   <strong>User:</strong>
   <%= @album.user.first_name %>
 </p>
 
-<%= link_to 'Edit', edit_album_path(@album) %> |
-<%= link_to 'Back', albums_path %>
+<%= render @album.photos %>
+
+<p>
+  <%= link_to 'Add a Photo', new_photo_path(album_id: @album) %> |
+  <%= link_to 'Edit', edit_album_path(@album) %> |
+  <%= link_to 'Back', albums_path %>
+</p>

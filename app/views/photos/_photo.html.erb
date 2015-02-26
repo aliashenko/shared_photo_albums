@@ -1,0 +1,9 @@
+<div class='image'>
+  <%= image_tag photo.image_url(:thumb) if photo.image? %>
+    <div class="actions">
+      <%= link_to_unless_current "edit", edit_photo_path(photo) do
+        link_to "maximize", root_url 
+      end %> |
+      <%= link_to "remove", photo, :confirm => 'Are you sure?', :method => :delete %>
+    </div>
+</div>
