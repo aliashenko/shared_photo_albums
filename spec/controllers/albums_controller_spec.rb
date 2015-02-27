@@ -18,7 +18,7 @@ RSpec.describe AlbumsController, :type => :controller do
     it 'populates an array of albums' do
       album1 = FactoryGirl.create(:album)
       album2 = FactoryGirl.create(:album)
-      expect(assigns(:albums)).to eq([album1, album2])
+      expect(assigns(:albums)).to include(album1, album2)
     end
   end
 
