@@ -2,5 +2,5 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @photo %> |
-<%= link_to 'Back', album_path(@photo.album) %>
+<%= link_to 'Show', album_photo_path(@album, @photo) %> |
+<%= link_to 'Back', album_path(@album) %>

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :user
 
   resources :users, only: [:index, :show]
-  resources :albums
-  resources :photos
+  resources :albums do
+    resources :photos
+  end
 end
