@@ -3,6 +3,8 @@
   <td><%= album.description %></td>
   <td><%= album.user.first_name %></td>
   <td><%= link_to 'Show', album_path(album) %></td>
-  <td><%= link_to 'Edit', edit_album_path(album) %></td>
-  <td><%= link_to 'Destroy', album_path(album), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <% if can? :manage, album %>
+    <td><%= link_to 'Edit', edit_album_path(album) %></td>
+    <td><%= link_to 'Destroy', album_path(album), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <% end %>
 </tr>

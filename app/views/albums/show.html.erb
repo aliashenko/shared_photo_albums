@@ -16,7 +16,9 @@
 <%= render @photos %>
 
 <p>
-  <%= link_to 'Add a Photo', new_album_photo_path(@album) %> |
-  <%= link_to 'Edit', edit_album_path(@album) %> |
+  <% if can? :manage, @album %>
+    <%= link_to 'Add a Photo', new_album_photo_path(@album) %> |
+    <%= link_to 'Edit', edit_album_path(@album) %> |
+  <% end %>
   <%= link_to 'Back', albums_path %>
 </p>

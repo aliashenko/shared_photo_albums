@@ -1,9 +1,11 @@
 <div class='image'>
   <%= image_tag photo.image_url(:thumb) if photo.image? %>
+  <% if can? :manage, photo %>
     <div class="actions">
       <%= link_to_unless_current "edit", edit_album_photo_path(photo.album, photo) do
         link_to "maximize", root_url
       end %> |
       <%= link_to "remove", album_photo_path(photo.album, photo), :confirm => 'Are you sure?', :method => :delete %>
     </div>
+  <% end %>
 </div>
