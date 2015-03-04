@@ -1,7 +1,7 @@
 <tr>
   <td><%= album.name %></td>
   <td><%= album.description %></td>
-  <td><%= album.user.first_name %></td>
+  <td><%= album.user.name %></td>
   <td><%= link_to 'Show', album_path(album) %></td>
   <% if can? :manage, album %>
     <td><%= link_to 'Edit', edit_album_path(album) %></td>
