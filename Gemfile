@@ -51,6 +51,7 @@ group :development, :test do
 end
 
 gem 'devise'
+gem 'omniauth-google-oauth2'
 gem 'cancancan', '~> 1.10'
 gem 'pry'
 gem 'rmagick'
