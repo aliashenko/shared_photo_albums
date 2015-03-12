@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:account_update) <<
-      [:name, :email, :password, :password_confirmation, :current_password]
+      [:name, :email, :password, :password_confirmation, :current_password, :avatar, :avatar_cache]
+	devise_parameter_sanitizer.for(:sign_up) <<
+      [:email, :password, :password_confirmation, :remember_me, :avatar, :avatar_cache]
   end
 end
