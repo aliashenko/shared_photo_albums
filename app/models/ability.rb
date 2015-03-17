@@ -6,7 +6,7 @@ class Ability
       can :read, :all
     else
       can :read, :all
-      can :manage, Album, user_id: user.id
+      can :manage, Album, owner_id: user.id
       can :manage, Photo do |photo|
         user.albums.include?(photo.album)
       end

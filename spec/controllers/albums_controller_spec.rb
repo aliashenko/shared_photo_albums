@@ -91,7 +91,7 @@ RSpec.describe AlbumsController, :type => :controller do
   describe 'PUT update' do
     before(:each) do
       login_user
-      @album = FactoryGirl.create(:album, user: @current_user, name: 'Album', description: 'New description')
+      @album = FactoryGirl.create(:album, owner: @current_user, name: 'Album', description: 'New description')
     end
 
     context 'valid attributes' do
@@ -118,7 +118,7 @@ RSpec.describe AlbumsController, :type => :controller do
         put :update, id: @album, album: FactoryGirl.attributes_for(:album, name: nil)
         expect(assigns(:album)).to eq(@album)
       end
-    
+
       it "does not change @album's attributes" do
         put :update, id: @album, album: FactoryGirl.attributes_for(:album, name: nil, description: 'Test description')
         @album.reload
@@ -136,9 +136,9 @@ RSpec.describe AlbumsController, :type => :controller do
   describe 'DELETE destroy' do
     before(:each) do
       login_user
-      @album = FactoryGirl.create(:album, user: @current_user)
+      @album = FactoryGirl.create(:album, owner: @current_user)
     end
-    
+
     it 'deletes the album' do
       expect{ delete :destroy, id: @album }.to change(Album, :count).by(-1)
     end

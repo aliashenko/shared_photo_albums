@@ -20,7 +20,7 @@ class AlbumsController < ApplicationController
 
   def create
     @album = Album.new(album_params)
-    @album.user = current_user
+    @album.owner = current_user
 
     respond_to do |format|
       if @album.save

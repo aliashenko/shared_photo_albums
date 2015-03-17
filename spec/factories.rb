@@ -5,10 +5,16 @@ FactoryGirl.define do
     password { |n| "user-#{n}" }
   end
 
+  factory :owner, class: User do
+    name { |n| "user #{n}" }
+    email { |n| "user-#{n}@example.com" }
+    password { |n| "user-#{n}" }
+  end
+
   factory :album do
     name { |n| "Title ##{n}" }
     description { |n| "Description of #{n} post" }
-    association :user
+    association :owner
   end
 
   factory :photo do
