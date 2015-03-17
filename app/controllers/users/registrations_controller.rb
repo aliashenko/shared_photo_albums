@@ -21,6 +21,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   protected
   def update_resource(resource, params)
+    if (params[:remove_avatar] == "1" && !params[:avatar].nil?)
+      params[:remove_avatar] = nil
+    end
     is_google_account = !resource.provider.blank?
     if !is_google_account
       resource.update_with_password(params)
