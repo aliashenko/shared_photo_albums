@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, :omniauth_providers => [:google_oauth2]
 
-  has_many :albums
+  has_many :albums, dependent: :destroy
 
   mount_uploader :avatar, AvatarUploader
 
