@@ -23,8 +23,8 @@
 
       var originalWidth = origin.width();
       var originalHeight = origin.height();
-      var windowWidth = window.innerWidth;
-      var windowHeight = window.innerHeight;
+      var windowWidth = window.outerWidth;
+      var windowHeight = window.outerHeight;
 
       var widthPercent = originalWidth / windowWidth;
       var heightPercent = originalHeight / windowHeight;
@@ -36,7 +36,7 @@
       if(options.minimize) {
         ratio = options.maxHeight / originalHeight; // get ratio for scaling image
         newWidth = originalWidth * ratio;
-        newHeight = originalHeight * ratio;
+        newHeight = options.maxHeight;
       }
       else {
         if (widthPercent > heightPercent) {
