@@ -1,6 +1,9 @@
-.container {
-
+.card {
+  margin: 10px 0px 0px 10px;
+  display: inline-block;
+  float: left;
 }
+
   @media (min-width: 768px) {
     .card {
       max-width: 23%;
@@ -12,12 +15,6 @@
   @media (min-width: 1200px) {
     .card {
       min-width: 23% } }
-
-.card {
-  margin: 10px 0px 0px 10px;
-  display: inline-block;
-  float: left;
-}
 
 .card-content {
   height: 50px;
@@ -43,6 +40,17 @@ main {
   margin: 15px auto;
 }
 
+.dropdown-content li {
+  font-size: 1em;
+}
+
+.albums_container {
+  padding: 0 1.5rem;
+  margin: 0 auto;
+  max-width: 1280px;
+  width: 100%;
+}
+
 .pa_album {
   width: 90%;
   padding: 0 1.5rem;
@@ -57,11 +65,25 @@ main {
   font-size: 24px;
 }
 
-.dropdown-content li {
-  font-size: 1em;
+.album_cards {
+  width: 100%;
+  display: inline-block;
+  position: relative;
 }
 
-.albums-divider {
+.btn-floating {
+  position: absolute;
+  top: 80%;
+  right: -5%;
+}
+
+a.title {
+  display: inline-block;
+  width: 100%;
+  margin: 10px;
+}
+
+.albums_divider {
   display: inline-block;
   width: 100%;
   height: 1px;
@@ -113,4 +135,3 @@ img.fullsize {
 i.arrow_icon {
   top: 40%;
 }
-
