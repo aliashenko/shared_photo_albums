@@ -84,3 +84,33 @@ main {
   width: 95%;
 }
 
+.photo_segment {
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+img.fullsize {
+  width: 70%;
+  padding-top: 20px;
+  margin: 10px auto; 
+}
+
+.arrow {
+  position: absolute;
+  height: 100%;
+  top: 0px;
+}
+
+.arrow.next {
+  right: 0px;
+}
+
+.arrow.previous {
+  left: 0px;
+}
+
+i.arrow_icon {
+  top: 40%;
+}
+
