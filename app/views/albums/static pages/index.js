@@ -63,6 +63,7 @@
 
 (function ($) {
   $(function() {
+    $('.modal-trigger').leanModal();
     $(".dropdown-button").dropdown({hover: false, alignment: 'right', constrain_width: false});
     $('.minimize_images').resizeimage();
     $('.arrow.previous').click(function() {

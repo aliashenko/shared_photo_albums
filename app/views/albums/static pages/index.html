@@ -14,13 +14,13 @@
     <li class="divider"></li>
     <li><a href="#!">Sign out</a></li>
   </ul>
-  <header class="navbar-fixed">
+  <header class="navbar">
     <nav>
       <div class="nav-wrapper">
         <a href="#" class="brand-logo">ShareMoments</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="#">Share</a></li>
-          <li><a href="#">Albums</a></li>
+          <li><a href="index.html">Albums</a></li>
           <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><img src="avatar.jpg" alt="User" class="avatar-img"></a></li>
         </ul>
       </div>
@@ -109,9 +109,20 @@
         </div>
 
         <div class="floating-action-btn">
-          <a href="#" class="btn-floating btn-large red">
+          <a href="#modal1" class="btn-floating btn-large red modal-trigger">
             <i class="large mdi-content-add"></i>
           </a>
+        </div>
+
+        <div id="modal1" class="modal modal-fixed-footer">
+          <div class="modal-content">
+            <h4>Create Album</h4>
+            <p>Drag photos here</p>
+          </div>
+          <div class="modal-footer">
+            <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Create</a>
+            <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+          </div>
         </div>
       </div>
 
