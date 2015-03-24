@@ -61,6 +61,10 @@ main {
   margin: 0px 0px -10px 0px;
 }
 
+.photo_segment .avatar-img {
+  margin: 0px 0px -10px 0px;
+}
+
 .pa_album_title {
   font-size: 24px;
 }

@@ -53,11 +53,23 @@
       origin.css("height", newHeight);
       origin.css("width", newWidth);
     });
-  };
-})(jQuery);
 
-$(document).ready(function() {
-  $(".dropdown-button").dropdown({hover: false, alignment: 'right', constrain_width: false});
-  $('.minimize_images').resizeimage();
-  $('.fullsize').resizeimage({minimize: false});
-});
+  };
+
+  $(function() {
+    $('.fullsize').resizeimage({minimize: false});
+  });
+}(jQuery));
+
+(function ($) {
+  $(function() {
+    $(".dropdown-button").dropdown({hover: false, alignment: 'right', constrain_width: false});
+    $('.minimize_images').resizeimage();
+    $('.arrow.previous').click(function() {
+      window.location.href='show_photo.html';
+    });
+    $('.arrow.next').click(function() {
+      window.location.href='show_photo_2.html';
+    });
+  });
+}(jQuery));
