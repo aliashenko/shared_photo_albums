@@ -148,3 +148,16 @@ img.fullsize {
 i.arrow_icon {
   top: 40%;
 }
+
+.dropzone {
+  border: 2px dashed #0087F7;
+  border-radius: 5px;
+  background: white;
+  min-height: 140px;
+}
+
+.dz-message {
+  text-align: center;
+  margin: 2em 0;
+  font-weight: 400;
+}
