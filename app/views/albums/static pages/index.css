@@ -161,3 +161,9 @@ i.arrow_icon {
   margin: 2em 0;
   font-weight: 400;
 }
+
+.pagination {
+  display: inline-block;
+  position: relative;
+  left: 34%;
+}
