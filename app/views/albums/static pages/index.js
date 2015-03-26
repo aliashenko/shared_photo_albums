@@ -72,5 +72,16 @@
     $('.arrow.next').click(function() {
       window.location.href='show_photo_2.html';
     });
+    $('.circle.profile_picture, .user_avatar_edit').hover(function(){
+      $('.user_avatar_edit').show();
+    }, function() {
+      $('.user_avatar_edit').hide();
+    });
+
+    $('.profile_background').hover(function(){
+      $('.profile_background_edit').show();
+    }, function() {
+      $('.profile_background_edit').hide();
+    });
   });
 }(jQuery));

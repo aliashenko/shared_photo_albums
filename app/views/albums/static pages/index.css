@@ -167,3 +167,53 @@ i.arrow_icon {
   position: relative;
   left: 34%;
 }
+
+.profile_header {
+  background-color: #fafafa;
+  height: 300px;
+}
+
+.profile_background {
+  background-color: #b0bec5;
+  height: 150px;
+}
+
+.profile_background_edit {
+  display: none;
+  background-color: white;
+  width: 175px;
+  opacity: 0.5;
+  text-align: center;
+  float: right;
+  margin-right: 10px;
+  margin-top: 105px;
+}
+
+.profile_picture {
+  background-color: white;
+  position: relative;
+  height: 150px;
+  width: 150px;
+  left: 50%;
+  margin-top: -75px;
+  margin-left:  -75px;
+}
+
+img.profile_picture {
+  margin-top: 0px;
+}
+
+.user_avatar_edit {
+  display: none;
+  margin:33px 0px 0px 45px;
+  position: absolute;
+  top: 0%;
+  opacity: 0.8;
+}
+
+.user_name {
+  text-align: center;
+  margin: 10px auto;
+  font-size: 2em;
+  font-weight: 300;
+}
