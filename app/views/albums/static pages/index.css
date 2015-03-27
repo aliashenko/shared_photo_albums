@@ -170,7 +170,7 @@ i.arrow_icon {
 
 .profile_header {
   background-color: #fafafa;
-  height: 300px;
+  height: 310px;
 }
 
 .profile_background {
@@ -213,7 +213,17 @@ img.profile_picture {
 
 .user_name {
   text-align: center;
-  margin: 10px auto;
   font-size: 2em;
   font-weight: 300;
+}
+
+.profile_content {
+}
+
+.user_profile {
+  height: 100%;
+}
+
+.card.small .information.card-content {
+  height: 100%;
 }
