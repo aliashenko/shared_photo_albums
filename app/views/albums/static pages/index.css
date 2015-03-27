@@ -6,22 +6,22 @@ footer.page-footer {
   background-color: #b0bec5;
 }
 
-.card {
+.album.card {
   margin: 10px 0px 0px 10px;
   display: inline-block;
   float: left;
 }
 
   @media (min-width: 768px) {
-    .card {
+    .album.card {
       max-width: 23%;
       min-width: 22% } }
   @media (min-width: 992px) {
-    .card {
+    .album.card {
       max-width: 23%;
       min-width: 22% } }
   @media (min-width: 1200px) {
-    .card {
+    .album.card {
       min-width: 23% } }
 
 .card-content {
