@@ -78,10 +78,15 @@
       $('.user_avatar_edit').hide();
     });
 
-    $('.profile_background').hover(function(){
+    $('.profile_background').hover(function() {
       $('.profile_background_edit').show();
     }, function() {
       $('.profile_background_edit').hide();
+    });
+
+    $('i.search').click(function() {
+      $('form.search').show()
+      $('i.search').hide();
     });
   });
 }(jQuery));

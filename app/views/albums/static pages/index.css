@@ -170,7 +170,7 @@ i.arrow_icon {
 
 .profile_header {
   background-color: #fafafa;
-  height: 310px;
+  height: 300px;
 }
 
 .profile_background {
@@ -189,6 +189,10 @@ i.arrow_icon {
   margin-top: 105px;
 }
 
+.profile_background_edit:hover {
+  opacity: 1;
+}
+
 .profile_picture {
   background-color: white;
   position: relative;
@@ -203,7 +207,7 @@ img.profile_picture {
   margin-top: 0px;
 }
 
-img.connection.profile_picture {
+img.connection {
   height: 50px;
   width: 50px;
   margin: 0;
@@ -212,16 +216,29 @@ img.connection.profile_picture {
 
 .user_avatar_edit {
   display: none;
-  margin:33px 0px 0px 45px;
+  margin: 33px 0px 0px 45px;
   position: absolute;
   top: 0%;
-  opacity: 0.8;
+  opacity: 1;
+}
+
+.user_avatar_edit:hover {
+  opacity: 1;
 }
 
 .user_name {
   text-align: center;
   font-size: 2em;
   font-weight: 300;
+  margin-top: 10px;
+}
+
+.connect a.btn {
+  display: inline-block;
+  float: right;
+  width: 160px;
+  margin-top: -40px;
+  margin-right: 10px;
 }
 
 .profile_content {
@@ -239,4 +256,14 @@ a.link.right {
   text-transform: none;
   color: #039be5;
   margin: 10px 10px 0px 0px;
+}
+
+.nav-wrapper.search-connections {
+  background-color: #e0f2f1;
+}
+
+.nav-wrapper.search-connections form {
+  float: right;
+  display: none;
+  border: none;
 }
