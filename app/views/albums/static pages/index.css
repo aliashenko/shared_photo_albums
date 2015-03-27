@@ -203,6 +203,13 @@ img.profile_picture {
   margin-top: 0px;
 }
 
+img.connection.profile_picture {
+  height: 50px;
+  width: 50px;
+  margin: 0;
+  position: inherit;
+}
+
 .user_avatar_edit {
   display: none;
   margin:33px 0px 0px 45px;
@@ -226,4 +233,10 @@ img.profile_picture {
 
 .card.small .information.card-content {
   height: 100%;
+}
+
+a.link.right {
+  text-transform: none;
+  color: #039be5;
+  margin: 10px 10px 0px 0px;
 }
