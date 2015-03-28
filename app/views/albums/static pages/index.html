@@ -11,7 +11,7 @@
 </head>
 <body>
   <ul id="dropdown1" class="dropdown-content">
-    <li><a href="#!">View profile</a></li>
+    <li><a href="user_page.html">View profile</a></li>
     <li class="divider"></li>
     <li><a href="#!">Sign out</a></li>
   </ul>
@@ -34,38 +34,42 @@
         <a class="title grey-text text-darken-4" href="#!">Shared with you</a>
 
         <div class="album card">
-          <div class="card-image waves-effect waves-block waves-light">
+          <div class="album card-image waves-effect waves-block waves-light">
             <img class="activator" src="http://placehold.it/200x200">
           </div>
           <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4">Card Title <i class="mdi-navigation-more-vert right"></i></span>
+            <div class="album card-title activator grey-text text-darken-4">Card Title</div>
+            <div class="album-icon"><i class="mdi-action-info-outline"></i></div>
           </div>
         </div>
 
         <div class="album card">
-          <div class="card-image waves-effect waves-block waves-light">
+          <div class="album card-image waves-effect waves-block waves-light">
             <img class="activator" src="http://placehold.it/200x200">
           </div>
           <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4">Card Title <i class="mdi-navigation-more-vert right"></i></span>
+            <div class="album card-title activator grey-text text-darken-4">Card Title</div>
+            <div class="album-icon"><i class="mdi-action-info-outline"></i></div>
           </div>
         </div>
 
         <div class="album card">
-          <div class="card-image waves-effect waves-block waves-light">
+          <div class="album card-image waves-effect waves-block waves-light">
             <img class="activator" src="http://placehold.it/200x200">
           </div>
           <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4">Card Title <i class="mdi-navigation-more-vert right"></i></span>
+            <div class="album card-title activator grey-text text-darken-4">Card Title</div>
+            <div class="album-icon"><i class="mdi-action-info-outline"></i></div>
           </div>
         </div>
 
         <div class="album card">
-          <div class="card-image waves-effect waves-block waves-light">
+          <div class="album card-image waves-effect waves-block waves-light">
             <img class="activator" src="http://placehold.it/200x200">
           </div>
           <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4">Card Title <i class="mdi-navigation-more-vert right"></i></span>
+            <div class="album card-title activator grey-text text-darken-4">Card Title</div>
+            <div class="album-icon"><i class="mdi-action-info-outline"></i></div>
           </div>
         </div>
 
@@ -85,38 +89,42 @@
         <div class="albums_divider"></div>
         <a class="title grey-text text-darken-4" href="#!">Your albums</a>
         <div class="album card">
-          <div class="card-image waves-effect waves-block waves-light">
+          <div class="album album card-image waves-effect waves-block waves-light">
             <img class="activator" src="http://placehold.it/200x200">
           </div>
           <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4">Card Title <i class="mdi-navigation-more-vert right"></i></span>
+            <div class="album card-title activator grey-text text-darken-4">Card Title</div>
+            <div class="album-icon"><a href="#share-album" class="modal-trigger"><i class="mdi-social-share"></i></a></div>
           </div>
         </div>
 
         <div class="album card">
-          <div class="card-image waves-effect waves-block waves-light">
+          <div class="album card-image waves-effect waves-block waves-light">
             <img class="activator" src="http://placehold.it/200x200">
           </div>
           <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4">Card Title <i class="mdi-navigation-more-vert right"></i></span>
+            <div class="album card-title activator grey-text text-darken-4">Card Title</div>
+            <div class="album-icon"><a href="#share-album" class="modal-trigger"><i class="mdi-social-share"></i></a></div>
           </div>
         </div>
 
         <div class="album card">
-          <div class="card-image waves-effect waves-block waves-light">
+          <div class="album card-image waves-effect waves-block waves-light">
             <img class="activator" src="http://placehold.it/200x200">
           </div>
           <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4">Card Title <i class="mdi-navigation-more-vert right"></i></span>
+            <div class="album card-title activator grey-text text-darken-4">Card Title</div>
+            <div class="album-icon"><a href="#share-album" class="modal-trigger"><i class="mdi-social-share"></i></a></div>
           </div>
         </div>
 
         <div class="album card">
-          <div class="card-image waves-effect waves-block waves-light">
+          <div class="album card-image waves-effect waves-block waves-light">
             <img class="activator" src="http://placehold.it/200x200">
           </div>
           <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4">Card Title <i class="mdi-navigation-more-vert right"></i></span>
+            <div class="album card-title activator grey-text text-darken-4">Card Title</div>
+            <div class="album-icon"><a href="#share-album" class="modal-trigger"><i class="mdi-social-share"></i></a></div>
           </div>
         </div>
 
@@ -137,6 +145,16 @@
           </div>
           <div class="modal-footer">
             <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Create</a>
+            <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
+          </div>
+        </div>
+
+        <div id="share-album" class="modal modal-fixed-footer">
+          <div class="modal-content">
+            <h4>Share Album</h4>
+          </div>
+          <div class="modal-footer">
+            <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Share</a>
             <a href="#" class="waves-effect waves-red btn-flat modal-action modal-close">Cancel</a>
           </div>
         </div>

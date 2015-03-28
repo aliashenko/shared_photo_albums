@@ -28,6 +28,16 @@ footer.page-footer {
   height: 50px;
 }
 
+.album.card-title {
+  display: inline-block;
+}
+
+.album-icon {
+  display: inline-block;
+  float: right;
+  line-height: 48px;
+}
+
 body {
   display: flex;
   min-height: 100vh;
@@ -219,7 +229,7 @@ img.connection {
   margin: 33px 0px 0px 45px;
   position: absolute;
   top: 0%;
-  opacity: 1;
+  opacity: 0.8;
 }
 
 .user_avatar_edit:hover {

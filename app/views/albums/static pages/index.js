@@ -63,8 +63,11 @@
 
 (function ($) {
   $(function() {
+    $('.album.card-image, .album.card-title').click(function() {
+      window.location.href='show.html'
+    });
     $('.modal-trigger').leanModal();
-    $(".dropdown-button").dropdown({hover: false, alignment: 'right', constrain_width: false});
+    $('.dropdown-button').dropdown({hover: false, alignment: 'right', constrain_width: false});
     $('.minimize_images').resizeimage();
     $('.arrow.previous').click(function() {
       window.location.href='show_photo.html';
