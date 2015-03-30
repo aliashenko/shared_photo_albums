@@ -63,7 +63,7 @@
 
 (function ($) {
   $(function() {
-    $('.album.card-image, .album.card-title').click(function() {
+    $('.album.card-image, .album.card-title.active').click(function() {
       window.location.href='show.html'
     });
     $('.modal-trigger').leanModal();
