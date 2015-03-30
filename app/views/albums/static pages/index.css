@@ -277,3 +277,18 @@ a.link.right {
   display: none;
   border: none;
 }
+
+.share_album_by {
+  width: 20%;
+  text-align: right;
+}
+
+.share_album {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.share_album input {
+  width: 90%;
+  /*float: right;*/
+}
