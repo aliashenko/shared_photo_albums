@@ -5,8 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, :omniauth_providers => [:google_oauth2]
 
-  has_many :albums, foreign_key: "owner_id", dependent: :destroy
+  has_many :albums, class_name: Album, foreign_key: "owner_id", dependent: :destroy
   has_many :album_viewers
+  has_many :shared_albums, class_name: Album, through: :album_viewers
 
   mount_uploader :avatar, AvatarUploader
 
