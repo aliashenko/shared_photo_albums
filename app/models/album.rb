@@ -5,4 +5,5 @@ class Album < ActiveRecord::Base
   has_many :viewers, class_name: User, through: :album_viewers, dependent: :destroy
 
   validates_presence_of :name
+  validates_presence_of :owner_id
 end
