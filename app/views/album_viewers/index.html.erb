@@ -1,0 +1,12 @@
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<div>
+  <%= link_to 'Back to user', :back %>
+  <h1>Albums</h1>
+
+  <%= render @shared_albums %>
+
+</div>

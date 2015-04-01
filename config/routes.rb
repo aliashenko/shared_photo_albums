@@ -7,4 +7,8 @@ Rails.application.routes.draw do
   resources :albums do
     resources :photos
   end
+
+  resources :users do
+    get '/shared_albums', to: 'album_viewers#index'
+  end
 end
