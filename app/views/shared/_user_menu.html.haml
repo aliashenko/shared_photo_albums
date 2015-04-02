@@ -1,0 +1,22 @@
+%ul#dropdown1.dropdown-content
+  - if user_signed_in?
+    %li
+      = link_to 'View profile', user_path(current_user)
+    %li.divider
+    %li
+      = link_to 'Sign out', destroy_user_session_path, :method => :delete
+
+%ul#nav-mobile.right.hide-on-med-and-down
+  %li
+    = link_to 'Share', root_path if user_signed_in?
+  %li
+    = link_to 'Albums', albums_path
+  - if user_signed_in?
+    %li
+      %a.dropdown-button{"data-activates" => "dropdown1"}
+        %img.avatar-img{:alt => "User", :src => current_user.avatar}/
+  - else
+    %li
+      = link_to 'Sign in', new_user_session_path
+    %li
+      = link_to 'Sign up', new_user_registration_path

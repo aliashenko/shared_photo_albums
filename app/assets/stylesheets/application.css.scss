@@ -12,7 +12,10 @@
  *
  *= require_tree .
  *= require_self
+ *= require dropzone/dropzone
  */
+
+ @import "materialize";
 
 .image {
   border: solid 1px #CCC;
