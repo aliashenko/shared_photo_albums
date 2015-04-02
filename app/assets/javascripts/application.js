@@ -17,6 +17,9 @@
 //= require dropzone
 //= require_tree .
 
-$(function() {
+var ready;
+ready = function() {
   $('.dropdown-button').dropdown({hover: false, alignment: 'right', constrain_width: false});
-});
+};
+$(document).ready(ready);
+$(document).on('page:load', ready);
