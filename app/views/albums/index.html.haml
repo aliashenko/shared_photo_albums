@@ -1,0 +1,5 @@
+= render "layouts/header"
+%div
+  %h1 Albums
+  = render @albums
+  = link_to 'New Album', new_album_path if user_signed_in?

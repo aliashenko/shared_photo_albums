@@ -1,0 +1,7 @@
+.collection
+  .collection-item
+    = image_tag(user.avatar.full.url) if user.avatar?
+    %span.title= user.name
+    = link_to 'Show', user
+    - if can? :manage, user
+      = link_to 'Edit', edit_user_registration_path

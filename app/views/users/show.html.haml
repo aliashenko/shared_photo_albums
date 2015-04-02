@@ -1,0 +1,12 @@
+%p
+  %strong Name:
+  = @user.name
+%div
+  = link_to 'Show albums', albums_path
+  |
+  = link_to 'Edit User', edit_user_registration_path if can? :edit, @user
+  - if can? :edit, @user
+    |
+  = link_to 'Back to users', users_path
+  |
+  = link_to 'Shared Albums', user_shared_albums_path(user_id: @user.id)

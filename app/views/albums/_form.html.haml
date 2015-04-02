@@ -1,0 +1,22 @@
+= form_for(@album) do |f|
+  - if @album.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@album.errors.count, "error")
+        prohibited this album from being saved:
+      %ul
+        - @album.errors.full_messages.each do |message|
+          %li= message
+  .input-field
+    = f.label :name
+    %br/
+    = f.text_field :name
+  .input-field
+    = f.label :description
+    %br/
+    = f.text_field :description
+  = f.fields_for :photos do |p|
+    = p.label :image
+    %br/
+    = p.file_field :image, :multiple => true, name: "photos[image][]"
+  = f.submit "Create Album", :class => "btn"

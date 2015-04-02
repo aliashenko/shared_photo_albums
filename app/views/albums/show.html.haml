@@ -1,0 +1,19 @@
+%p
+  %strong Name:
+  = @album.name
+%p
+  %strong Description:
+  = @album.description
+%p
+  %strong User:
+  = @album.owner.name
+= render @photos
+%p
+  - if can? :manage, @album
+    = link_to 'Add a Photo', new_album_photo_path(@album)
+    |
+    = link_to 'Edit', edit_album_path(@album)
+    |
+    = link_to 'Share', '#'
+    |
+  = link_to 'Back', albums_path

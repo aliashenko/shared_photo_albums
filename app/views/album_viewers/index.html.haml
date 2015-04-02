@@ -1,0 +1,7 @@
+%p
+  %strong Name:
+  = @user.name
+%div
+  = link_to 'Back to user', :back
+  %h1 Albums
+  = render @shared_albums

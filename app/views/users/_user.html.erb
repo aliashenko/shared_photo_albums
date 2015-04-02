@@ -1,7 +1,0 @@
-<tr>
-  <td><%= user.name %></td>
-  <td><%= link_to 'Show', user %></td>
-  <% if can? :manage, user %>
-    <td><%= link_to 'Edit', edit_user_registration_path %></td>
-  <% end %>
-</tr>
