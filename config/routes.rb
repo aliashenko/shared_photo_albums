@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show]
   resources :albums do
     resources :photos
+    member do
+      get 'get_viewers'
+    end
   end
 
   resources :users do

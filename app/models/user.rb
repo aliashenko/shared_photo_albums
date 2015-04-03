@@ -31,4 +31,16 @@ class User < ActiveRecord::Base
       end
     end
   end
+
+  def value
+    id
+  end
+
+  def label
+    "#{name} #{email}"
+  end
+
+  def user_name
+    "#{name}"
+  end
 end

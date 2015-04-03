@@ -69,6 +69,11 @@ class AlbumsController < ApplicationController
     end
   end
 
+  def get_viewers
+    @viewers = User.where('email LIKE ? OR name LIKE ?', "%#{params[:user_name]}%", "%#{params[:user_name]}%")
+    render json: @viewers.to_json(only: [], methods: [:label, :user_name, :value])
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_album

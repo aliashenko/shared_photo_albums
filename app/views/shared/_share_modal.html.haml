@@ -1,0 +1,16 @@
+#share-album.modal.modal-fixed-footer
+  .modal-content
+    %h4 Share album "Album name"
+    %br/
+    %table.share_album
+      %tr
+        %td.share_album_by To:
+        %td
+          %input#search_contacts{:name => 's', :placeholder => 'Search...', :results => '5', :type => 'search', data: { url: get_viewers_album_path }}/
+      %tr
+        %td.share_album_by Share by email:
+        %td
+          %input{:type => 'email'}/
+  .modal-footer
+    %a.waves-effect.green.darken-1.white-text.waves-green.btn-flat.modal-action.modal-close{:href => '#'} Share
+    %a.waves-effect.waves-red.btn-flat.modal-action.modal-close{:href => '#'} Cancel
