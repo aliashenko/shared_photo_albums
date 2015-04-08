@@ -1,22 +1,30 @@
-%p
-  %strong Name:
-  = @album.name
-%p
-  %strong Description:
-  = @album.description
-%p
-  %strong User:
-  = @album.owner.name
-= render @photos
-%p
-  - if can? :manage, @album
-    = link_to 'Add a Photo', new_album_photo_path(@album)
-    |
-    = link_to 'Edit', edit_album_path(@album)
-    |
-    = link_to '#share-album', class: 'modal-trigger' do
-      %i.mdi-social-share
-    |
-  = link_to 'Back', albums_path
+%main
+  .pa_album
+    .pa_album_title.grey-text.text-darken-4
+      #{@album.name.capitalize}
+    %p
+      = link_to user_path(@album.owner), class: "grey-text text-darken-4" do
+        %img.avatar-img{:alt => "#{@album.owner.name}", :src => "#{@album.owner.avatar}"}/
+      - if current_user == @album.owner
+        created #{@album.created_at.to_date}
+      - else
+        shared #{@album.created_at.to_date}
+    .pa_album_images
+      = render @photos
+
+    - if can? :manage, @album
+      .fixed-action-btn{:style => "bottom: 200px; right: 50px;"}
+        %a.btn-floating.btn-large.red
+          %i.large.mdi-editor-mode-edit
+        %ul
+          %li
+            = link_to new_album_photo_path(@album), class: "btn-floating blue" do
+              %i.large.mdi-editor-insert-photo
+          %li
+            = link_to edit_album_path(@album), class: "btn-floating yellow" do
+              %i.large.mdi-editor-mode-edit
+          %li
+            = link_to '#share-album', class: 'modal-trigger btn-floating green' do
+              %i.large.mdi-social-share
 
 = render 'shared/share_modal'

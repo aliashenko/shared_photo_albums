@@ -27,23 +27,3 @@ body {
 main {
   flex: 1 0 auto;
 }
-
-.image {
-  border: solid 1px #CCC;
-  padding: 10px 10px;
-  float: left;
-  margin-right: 20px;
-  margin-bottom: 20px;
-}
-
-.image .image_placeholder {
-  width: 200px;
-  height: 150px;
-  background-color: #B6B6B6;
-}
-
-.image .actions {
-  font-size: 10px;
-  text-align: center;
-  color: #777;
-}

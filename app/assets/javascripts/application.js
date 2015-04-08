@@ -20,6 +20,7 @@
 
 var ready;
 ready = function() {
+  $('.minimize_images').resizeimage();
   $('.dropdown-button').dropdown({hover: false, alignment: 'right', constrain_width: false});
   $('.modal-trigger').leanModal({
     ready: function() {

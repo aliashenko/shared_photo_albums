@@ -4,7 +4,8 @@
     %i.mdi-content-clear
 #share-album.modal.modal-fixed-footer
   .modal-content
-    %h4 Share album "Album name"
+    .row
+      %h4.col.offset-s1 Share album '#{@album.name.capitalize}'
     .row
       = form_for(@album, url: share_album_path, html: {method: 'post'}, :class => "col s12") do |f|
         .row
@@ -15,7 +16,7 @@
         .row
           .input-field.col.s8.offset-s2
             %label Share by email
-            %input{type: 'email'}/
+            %input{type: 'email', class: 'validate'}/
   .modal-footer
     %a.waves-effect.green.darken-1.white-text.waves-green.btn-flat.modal-action.modal-close{:href => '#'} Share
     %a.waves-effect.waves-red.btn-flat.modal-action.modal-close{:href => '#'} Cancel
