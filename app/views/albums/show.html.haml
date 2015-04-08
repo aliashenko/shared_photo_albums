@@ -18,7 +18,7 @@
           %i.large.mdi-editor-mode-edit
         %ul
           %li
-            = link_to new_album_photo_path(@album), class: "btn-floating blue" do
+            = link_to new_album_photo_path(@album), remote: true, class: 'btn-floating blue' do
               %i.large.mdi-editor-insert-photo
           %li
             = link_to edit_album_path(@album), class: "btn-floating yellow" do

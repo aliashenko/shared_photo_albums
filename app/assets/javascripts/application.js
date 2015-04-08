@@ -24,7 +24,7 @@ ready = function() {
   $('.dropdown-button').dropdown({hover: false, alignment: 'right', constrain_width: false});
   $('.modal-trigger').leanModal({
     ready: function() {
-     $('#share-album input').val(''); 
+      $('#share-album input').val('');
     }
   });
   $(document).on('click', '.mdi-content-clear', function() {

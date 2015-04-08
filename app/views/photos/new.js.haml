@@ -1,0 +1,5 @@
+:plain
+  var $modal = "#{escape_javascript(render(:partial => 'form', locals: { album: @album, photo: @photo }))}"
+  $('#add_photo').remove();
+  $('.pa_album').append($modal);
+  $('#add_photo').openModal();

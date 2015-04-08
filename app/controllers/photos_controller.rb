@@ -12,6 +12,10 @@ class PhotosController < ApplicationController
 
   def new
     @photo = @album.photos.new
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   def edit

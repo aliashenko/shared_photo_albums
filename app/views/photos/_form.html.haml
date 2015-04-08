@@ -1,16 +1,15 @@
-= form_for [@album, @photo], html: { multipart: true } do |f|
-  - if @photo.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@photo.errors.count, "error")
-        prohibited this photo from being saved:
-      %ul
-        - @photo.errors.full_messages.each do |message|
-          %li= message
-  .field
-    = image_tag(@photo.image_url) if @photo.image?
-    = f.file_field :image
-    = f.hidden_field :image_cache
-  .actions
-    = f.hidden_field :album_id
-    = f.submit
+#add_photo.modal.modal-fixed-footer
+  = form_for [album, photo], html: { multipart: true } do |f|
+    .modal-content
+      .row
+        %h4.col.offset-s1 Add photos to '#{album.name.capitalize}'
+      .row
+        .field
+        = image_tag(photo.image_url) if photo.image?
+        = f.file_field :image
+        = f.hidden_field :image_cache
+    .modal-footer
+      .actions
+        = f.hidden_field :album_id
+        = link_to 'Cancel', album_path(album), class: 'waves-effect waves-red btn-flat modal-action'
+        = f.submit 'Add', class: 'green darken-1 white-text waves-green btn-flat modal-action'
