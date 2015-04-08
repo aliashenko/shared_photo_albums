@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :photos
     member do
       get 'get_viewers'
+      post 'share'
     end
   end
 

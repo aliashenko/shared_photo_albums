@@ -41,6 +41,6 @@ class User < ActiveRecord::Base
   end
 
   def user_name
-    "#{name}"
+    name || email
   end
 end

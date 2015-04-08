@@ -1,16 +1,21 @@
+%script#name_block{:type => "text/html"}
+  .name-block{ data: { id: "{{ id }}" } }
+    {{ name }}
+    %i.mdi-content-clear
 #share-album.modal.modal-fixed-footer
   .modal-content
     %h4 Share album "Album name"
-    %br/
-    %table.share_album
-      %tr
-        %td.share_album_by To:
-        %td
-          %input#search_contacts{:name => 's', :placeholder => 'Search...', :results => '5', :type => 'search', data: { url: get_viewers_album_path }}/
-      %tr
-        %td.share_album_by Share by email:
-        %td
-          %input{:type => 'email'}/
+    .row
+      = form_for(@album, url: share_album_path, html: {method: 'post'}, :class => "col s12") do |f|
+        .row
+          .input-field.col.s8.offset-s2
+            #name_block_search
+              = hidden_field :album, :viewers, value: @album.viewers.map(&:id)
+              %input{id: 'search_contacts', :results => '5', placeholder: '+ Add more people', type: 'text', data: { url: get_viewers_album_path }}/
+        .row
+          .input-field.col.s8.offset-s2
+            %label Share by email
+            %input{type: 'email'}/
   .modal-footer
     %a.waves-effect.green.darken-1.white-text.waves-green.btn-flat.modal-action.modal-close{:href => '#'} Share
     %a.waves-effect.waves-red.btn-flat.modal-action.modal-close{:href => '#'} Cancel

@@ -21,11 +21,21 @@
 var ready;
 ready = function() {
   $('.dropdown-button').dropdown({hover: false, alignment: 'right', constrain_width: false});
-  $('.modal-trigger').leanModal();
+  $('.modal-trigger').leanModal({
+    ready: function() {
+     $('#share-album input').val(''); 
+    }
+  });
+  $(document).on('click', '.mdi-content-clear', function() {
+    var $album_viewers = $('#album_viewers');
+    var user_ids = $album_viewers.val().replace(',' + $(this).parent().data('id'), '');
+    $album_viewers.val(user_ids);
+    $(this).parent().remove();
+  });
   $('#search_contacts').on('input', function() {
+    var users = $('#album_viewers').val().split(',');
     var url = $(this).data('url');
     var userName = $(this).val();
-    var searchContainer = $(this);
 
     if (userName.length >= 2) {
       $.get(url,
@@ -34,11 +44,18 @@ ready = function() {
           $('#search_contacts').autocomplete({
             source: result,
             select: function(event, ui) {
-              searchContainer.val(ui.item.user_name);
+              if ($.inArray(ui.item.value.toString(), users) == -1) {
+                var user_data = { name: ui.item.user_name, id: ui.item.value };
+                users.push(ui.item.value.toString());
+                userNameContainer = ich.name_block(user_data);
+                $('#name_block_search').append(userNameContainer);
+                $('#album_viewers').val(users.join(','));
+              }
+              $(this).val('');
               return false; // Prevent the widget from inserting the value.
             },
             focus: function(event, ui) {
-              searchContainer.val(ui.item.label);
+              $(this).val(ui.item.user_name);
               return false; // Prevent the widget from inserting the value.
             }
           });

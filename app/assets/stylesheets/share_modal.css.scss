@@ -1,17 +1,19 @@
-.share_album_by {
-  width: 20%;
-  text-align: right;
-}
-
-.share_album {
-  width: 90%;
-  margin: 0 auto;
-}
-
-.share_album input {
-  width: 90%;
-}
-
 .ui-front {
   z-index: 1001 !important;
+}
+
+.name-block {
+  display: inline-block;
+  margin: 0 5px 5px 0;
+  width: auto;
+  padding: 0 10px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  background-color: #26a69a;
+  color: white;
+  font-size: 1.2rem;
+}
+
+i.mdi-content-clear {
+  cursor: pointer;
 }

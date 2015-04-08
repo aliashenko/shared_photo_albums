@@ -74,6 +74,9 @@ class AlbumsController < ApplicationController
     render json: @viewers.to_json(only: [], methods: [:label, :user_name, :value])
   end
 
+  def share
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_album
