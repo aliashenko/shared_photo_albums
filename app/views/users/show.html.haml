@@ -10,3 +10,56 @@
   = link_to 'Back to users', users_path
   |
   = link_to 'Shared Albums', user_shared_albums_path(user_id: @user.id)
+
+%main
+  .container.z-depth-1.user_profile
+    .profile_header
+      .profile_background
+        - if can? :edit, @user
+          %a.btn-flat.profile_background_edit{:href => "#"} Change Cover
+      .circle.profile_picture
+        = image_tag(@user.avatar.url, class: 'circle profile_picture')
+        - if can? :edit, @user
+          %i.circle.user_avatar_edit.medium.mdi-image-camera-alt
+      .user_name
+        = @user.user_name
+      .connect
+        - unless (@user == current_user)
+          = link_to users_path, class: 'btn' do
+            %i.mdi-social-person-add
+            Connect
+    .profile_content
+      .row
+        .col.s6
+          .card.small
+            .information.card-content
+              %span.card-title.activator.grey-text.text-darken-4
+                Contact information
+                - if can? :edit, @user
+                  %a.modal-trigger{:href => "#edit_user_information"}
+                    %i.mdi-editor-mode-edit.right
+              %p
+                %table
+                  %tbody
+                    %tr
+                      %td
+                        %i.mdi-communication-email
+                      %td Email
+                      %td #{@user.email}
+              %p
+                = link_to 'Show shared albums', albums_path
+            
+        .col.s6
+          .card
+            .connections.card-content
+              %span.card-title.activator.grey-text.text-darken-4
+                Connections
+                - if can? :edit, @user
+                  %a.modal-trigger{:href => "#search_connections"}
+                    %i.mdi-social-person-add.right
+                .col.s12
+                  = image_tag(@user.avatar.thumb.url, {"data-delay" => "50", "data-position" => "bottom", "data-tooltip" => "User Name", class: 'connection circle tooltipped'})
+                  = image_tag(@user.avatar.thumb.url, {"data-delay" => "50", "data-position" => "bottom", "data-tooltip" => "User Name", class: 'connection circle tooltipped'})
+                  = image_tag(@user.avatar.thumb.url, {"data-delay" => "50", "data-position" => "bottom", "data-tooltip" => "User Name", class: 'connection circle tooltipped'})
+                  = image_tag(@user.avatar.thumb.url, {"data-delay" => "50", "data-position" => "bottom", "data-tooltip" => "User Name", class: 'connection circle tooltipped'})
+                  %a.link.right{:href => "#"} Show more

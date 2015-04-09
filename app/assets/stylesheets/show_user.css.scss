@@ -1,0 +1,90 @@
+.profile_header {
+  background-color: #fafafa;
+  height: 300px;
+}
+
+.profile_background {
+  background-color: #b0bec5;
+  height: 150px;
+  width: 100%;
+}
+
+.profile_background_edit {
+  display: none;
+  background-color: white;
+  width: 175px;
+  opacity: 0.5;
+  text-align: center;
+  float: right;
+  margin-right: 10px;
+  margin-top: 105px;
+}
+
+.profile_background_edit:hover {
+  opacity: 1;
+}
+
+.profile_picture {
+  background-color: white;
+  position: relative;
+  height: 150px;
+  width: 150px;
+  left: 50%;
+  margin-top: -75px;
+  margin-left:  -75px;
+}
+
+img.profile_picture {
+  margin-top: 0px;
+}
+
+img.connection {
+  height: 50px;
+  width: 50px;
+  margin: 0;
+  position: inherit;
+}
+
+.user_avatar_edit {
+  display: none;
+  margin: 33px 0px 0px 45px;
+  position: absolute;
+  top: 0%;
+  opacity: 0.8;
+}
+
+.user_avatar_edit:hover {
+  opacity: 1;
+}
+
+.user_name {
+  text-align: center;
+  font-size: 2em;
+  font-weight: 300;
+  margin-top: 10px;
+}
+
+.connect a.btn {
+  display: inline-block;
+  float: right;
+  width: 160px;
+  margin-top: -40px;
+  margin-right: 10px;
+}
+
+.profile_content {
+}
+
+.user_profile {
+  height: 100%;
+}
+
+.card.small .information.card-content {
+  height: 100%;
+}
+
+a.link.right {
+  text-transform: none;
+  color: #039be5;
+  margin: 10px 10px 0px 0px;
+}

@@ -20,6 +20,18 @@
 
 var ready;
 ready = function() {
+  $('.circle.profile_picture, .user_avatar_edit').hover(function(){
+    $('.user_avatar_edit').show();
+  }, function() {
+    $('.user_avatar_edit').hide();
+  });
+
+  $('.profile_background').hover(function() {
+    $('.profile_background_edit').show();
+  }, function() {
+    $('.profile_background_edit').hide();
+  });
+
   $('.minimize_images').resizeimage();
   $('.dropdown-button').dropdown({hover: false, alignment: 'right', constrain_width: false});
 
