@@ -1,7 +1,8 @@
-.collection
-  .collection-item
-    = image_tag(user.avatar.full.url) if user.avatar?
-    %span.title= user.name
-    = link_to 'Show', user
-    - if can? :manage, user
-      = link_to 'Edit', edit_user_registration_path
+%li.collection-item
+  = link_to user do
+    = image_tag(user.avatar.thumb.url, class: 'circle')
+    .user_name_title
+      = user.user_name
+  - if can? :manage, user
+    = link_to edit_user_registration_path, class: 'user secondary-content' do
+      %i.mdi-editor-mode-edit

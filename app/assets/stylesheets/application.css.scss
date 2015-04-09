@@ -27,3 +27,16 @@ body {
 main {
   flex: 1 0 auto;
 }
+
+.user_name_title {
+  display: inline-block;
+  position: absolute;
+  font-size: 1.6rem;
+  padding: 20px;
+}
+
+a.user.secondary-content {
+  display: inline;
+  font-size: 1.6rem;
+  margin-top: 10px;
+}
