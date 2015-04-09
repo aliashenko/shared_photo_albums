@@ -22,19 +22,18 @@ var ready;
 ready = function() {
   $('.minimize_images').resizeimage();
   $('.dropdown-button').dropdown({hover: false, alignment: 'right', constrain_width: false});
-  $('.modal-trigger').leanModal({
-    ready: function() {
-      $('#share-album input').val('');
-    }
-  });
+
   $(document).on('click', '.mdi-content-clear', function() {
-    var $album_viewers = $('#album_viewers');
-    var user_ids = $album_viewers.val().replace(',' + $(this).parent().data('id'), '');
-    $album_viewers.val(user_ids);
+    var $album_viewers = $('#share_album_album_viewers');
+    var user_ids = $album_viewers.val().split(' ');
+    user_ids.splice( $.inArray($(this).parent().data('id').toString(), user_ids), 1 );
+    console.log(user_ids);
+    $album_viewers.val(user_ids.join(' '));
     $(this).parent().remove();
   });
-  $('#search_contacts').on('input', function() {
-    var users = $('#album_viewers').val().split(',');
+
+  $(document).on('input', '#search_contacts', function() {
+    var users = $('#share_album_album_viewers').val().split(',');
     var url = $(this).data('url');
     var userName = $(this).val();
 
@@ -48,9 +47,10 @@ ready = function() {
               if ($.inArray(ui.item.value.toString(), users) == -1) {
                 var user_data = { name: ui.item.user_name, id: ui.item.value };
                 users.push(ui.item.value.toString());
+                console.log(user_data);
                 userNameContainer = ich.name_block(user_data);
                 $('#name_block_search').append(userNameContainer);
-                $('#album_viewers').val(users.join(','));
+                $('#share_album_album_viewers').val(users.join(' '));
               }
               $(this).val('');
               return false; // Prevent the widget from inserting the value.

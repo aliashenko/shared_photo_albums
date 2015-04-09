@@ -1,3 +1,7 @@
+%script#name_block{:type => "text/html"}
+  .name-block{ data: { id: "{{ id }}" } }
+    {{ name }}
+    %i.mdi-content-clear
 %main
   .pa_album
     .pa_album_title.grey-text.text-darken-4
@@ -24,7 +28,5 @@
             = link_to edit_album_path(@album), class: "btn-floating yellow" do
               %i.large.mdi-editor-mode-edit
           %li
-            = link_to '#share-album', class: 'modal-trigger btn-floating green' do
+            = link_to share_album_path(@album), remote: true, class: 'btn-floating green' do
               %i.large.mdi-social-share
-
-= render 'shared/share_modal'

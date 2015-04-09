@@ -1,0 +1,21 @@
+#share-album.modal.modal-fixed-footer
+  = form_for(:share_album, url: share_album_index_path(id: @album), html: {method: 'post'}, :class => "col s12") do |f|
+    .modal-content
+      .row
+        %h4.col.offset-s1 Share album '#{@album.name.capitalize}'
+      .row
+        .input-field.col.s8.offset-s2
+          #name_block_search
+            = f.hidden_field :album_viewers, value: @album.viewers.map(&:id)
+            %input{id: 'search_contacts', :results => '5', placeholder: '+ Add more people', type: 'text', data: { url: viewers_share_album_path }}/
+            - @album.viewers.each do |viewer|
+              .name-block{ data: { id: viewer.id } }
+                = viewer.user_name
+                %i.mdi-content-clear
+      .row
+        .input-field.col.s8.offset-s2
+          %label Share by email
+          %input{type: 'email', class: 'validate'}/
+    .modal-footer
+      = f.submit 'Share', class: 'waves-effect green darken-1 white-text waves-green btn-flat modal-action'
+      %a.waves-effect.waves-red.btn-flat.modal-action.modal-close{:href => '#'} Cancel

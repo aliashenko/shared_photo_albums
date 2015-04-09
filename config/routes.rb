@@ -6,9 +6,10 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show]
   resources :albums do
     resources :photos
+  end
+  resources :share_album do
     member do
-      get 'get_viewers'
-      post 'share'
+      get 'viewers'
     end
   end
 
