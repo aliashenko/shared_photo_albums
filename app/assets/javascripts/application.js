@@ -56,10 +56,10 @@ ready = function() {
           $('#search_contacts').autocomplete({
             source: result,
             select: function(event, ui) {
-              if ($.inArray(ui.item.value.toString(), users) == -1) {
+              var users_array = users.toString().split(' ');
+              if ($.inArray(ui.item.value.toString(), users_array) == -1) {
                 var user_data = { name: ui.item.user_name, id: ui.item.value };
                 users.push(ui.item.value.toString());
-                console.log(user_data);
                 userNameContainer = ich.name_block(user_data);
                 $('#name_block_search').append(userNameContainer);
                 $('#share_album_album_viewers').val(users.join(' '));
