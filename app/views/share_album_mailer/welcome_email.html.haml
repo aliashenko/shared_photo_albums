@@ -1,0 +1,15 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %h1
+      Welcome to sharemoments.com
+    %p
+      User #{@album.owner.user_name} has shared
+      #{@album.name} with you.
+      Sign in using this email address to view it.
+      %br/
+    %p
+      To login to the site, just follow this link: #{@url}.
+    %p Thanks for reading and have a great day!
