@@ -13,6 +13,6 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_in) <<
       [:name, :email, :password, :password_confirmation]
     devise_parameter_sanitizer.for(:sign_up) <<
-      [:email, :password, :password_confirmation, :remember_me]
+      [:email, :password, :password_confirmation, :remember_me, :album_id]
   end
 end

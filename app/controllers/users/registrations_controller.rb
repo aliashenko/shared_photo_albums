@@ -1,4 +1,35 @@
 class Users::RegistrationsController < Devise::RegistrationsController
+  def new
+    build_resource({})
+    set_minimum_password_length
+    yield resource if block_given?
+    respond_with(self.resource, @album)
+  end
+
+  def create
+    build_resource(sign_up_params)
+    @album = Album.find(params[:album_id]) if params[:album_id]
+
+    resource.save
+    @album.viewers << resource
+    yield resource if block_given?
+    if resource.persisted?
+      if resource.active_for_authentication?
+        set_flash_message :notice, :signed_up if is_flashing_format?
+        sign_up(resource_name, resource)
+        respond_with resource, location: after_sign_up_path_for(resource)
+      else
+        set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if is_flashing_format?
+        expire_data_after_sign_in!
+        respond_with resource, location: after_inactive_sign_up_path_for(resource)
+      end
+    else
+      clean_up_passwords resource
+      set_minimum_password_length
+      respond_with resource
+    end
+  end
+
   def update
     self.resource = resource_class.to_adapter.get!(send(:"current_#{resource_name}").to_key)
     prev_unconfirmed_email = resource.unconfirmed_email if resource.respond_to?(:unconfirmed_email)
@@ -29,6 +60,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
       resource.update_with_password(params)
     else
       resource.update_without_password(params.except(:current_password))
+    end
+  end
+
+  def set_minimum_password_length
+    if devise_mapping.validatable?
+      @minimum_password_length = resource_class.password_length.min
     end
   end
 end

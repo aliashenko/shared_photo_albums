@@ -2,6 +2,7 @@
   %legend Sign up
   = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
     = devise_error_messages!
+    %input{:type => "hidden", name: 'album_id', :value => params[:album_id]}
     .input-field
       = f.label :email
       = f.email_field :email, autofocus: true

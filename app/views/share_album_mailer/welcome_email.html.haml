@@ -8,8 +8,9 @@
     %p
       User #{@album.owner.user_name} has shared
       #{@album.name} with you.
-      Sign in using this email address to view it.
+      Sign up using this email address to view it.
       %br/
     %p
-      To login to the site, just follow this link: #{@url}.
+      To login to the site, just follow this
+      %a(href="#{@url}") link.
     %p Thanks for reading and have a great day!
