@@ -1,11 +1,4 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-  def new
-    build_resource({})
-    set_minimum_password_length
-    yield resource if block_given?
-    respond_with(self.resource, @album)
-  end
-
   def create
     build_resource(sign_up_params)
     @album = Album.find(params[:album_id]) if params[:album_id]

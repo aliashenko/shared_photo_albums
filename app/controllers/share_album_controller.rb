@@ -14,10 +14,13 @@ class ShareAlbumController < ApplicationController
     @viewers_ids.delete('')
     @viewers = User.where(id: @viewers_ids)
     @album.viewers = @viewers
-    @email = params[:share_album][:email]
+    @emails = params[:share_album][:emails].split(" ")
+    byebug
 
-    unless @email.empty?
-      ShareAlbumMailer.welcome_email(@email, @album).deliver_now
+    unless @emails.empty?
+      @emails.each do |email|
+        ShareAlbumMailer.welcome_email(email, @album).deliver_now
+      end
     end
 
     redirect_to @album

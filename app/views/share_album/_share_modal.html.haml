@@ -14,7 +14,7 @@
                 %i.mdi-content-clear
       .row
         .input-field.col.s8.offset-s2
-          = f.email_field :email, id: 'share_by_email', placeholder: 'Share by email', class: 'validate'
+          = f.text_field :emails, id: 'share_by_email', placeholder: 'Share by email'
     .modal-footer
       = f.submit 'Share', class: 'waves-effect green darken-1 white-text waves-green btn-flat modal-action'
       %a.waves-effect.waves-red.btn-flat.modal-action.modal-close{:href => '#'} Cancel
