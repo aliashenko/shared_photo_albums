@@ -4,8 +4,8 @@ class AlbumsController < ApplicationController
 
   def index
     @albums = Album.all
-    @shared_albums = current_user.shared_albums.order(:name).page(params[:shared_albums]).per(4)
-    @user_albums = current_user.albums.order(:name).page(params[:user_albums]).per(4)
+    @shared_albums = current_user.shared_albums.order(:created_at).page(params[:shared_albums]).per(4)
+    @user_albums = current_user.albums.order(:created_at).page(params[:user_albums]).per(4)
 
     respond_to do |format|
       format.js

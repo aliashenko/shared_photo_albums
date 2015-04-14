@@ -1,0 +1,65 @@
+.albums_container {
+  padding: 0 1.5rem;
+  margin: 0 auto;
+  max-width: 1280px;
+  width: 100%;
+}
+
+.album_cards {
+  width: 100%;
+  display: inline-block;
+  position: relative;
+}
+
+a.title {
+  display: inline-block;
+  width: 100%;
+  margin: 10px;
+}
+
+.albums_divider {
+  display: inline-block;
+  width: 100%;
+  height: 1px;
+  overflow: hidden;
+  background-color: #e0e0e0;
+}
+
+.album.card {
+  margin: 10px 0px 0px 10px;
+  display: inline-block;
+  float: left;
+}
+
+  @media (min-width: 768px) {
+    .album.card {
+      max-width: 23%;
+      min-width: 22% } }
+  @media (min-width: 992px) {
+    .album.card {
+      max-width: 23%;
+      min-width: 22% } }
+  @media (min-width: 1200px) {
+    .album.card {
+      min-width: 23% } }
+
+.card-content {
+  height: 50px;
+}
+
+.album.card-title {
+  display: inline-block;
+  text-transform: none;
+}
+
+.album-icon {
+  display: inline-block;
+  float: right;
+  line-height: 48px;
+}
+
+.add_album .btn-floating.btn-large.red {
+  position: absolute;
+  right: 15%;
+  z-index: 100;
+}
