@@ -9,9 +9,9 @@
 %ul#nav-mobile.right.hide-on-med-and-down
   %li
     = link_to 'Share', root_path if user_signed_in?
-  %li
-    = link_to 'Albums', albums_path
   - if user_signed_in?
+    %li
+      = link_to 'Albums', albums_path
     %li
       %a.dropdown-button{"data-activates" => "dropdown1"}
         = image_tag(current_user.avatar.thumb.url, class: 'avatar-img')

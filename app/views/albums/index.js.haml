@@ -1,0 +1,6 @@
+$('.shared.album_cards').html("#{escape_javascript(render @shared_albums)}");
+$('#shared_paginator').html("#{escape_javascript(paginate @shared_albums, remote: true, param_name: 'shared_albums')}");
+
+
+$('.users.album_cards').html("#{escape_javascript(render @user_albums)}");
+$('#paginator').html("#{escape_javascript(paginate @user_albums, remote: true, param_name: 'user_albums')}");

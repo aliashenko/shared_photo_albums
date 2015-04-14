@@ -1,7 +1,17 @@
-%tr
-  %td= album.name
-  %td= album.description
-  %td= link_to 'Show', album_path(album)
-  - if can? :manage, album
-    %td= link_to 'Edit', edit_album_path(album)
-    %td= link_to 'Destroy', album_path(album), method: :delete, data: { confirm: 'Are you sure?' }
+.album.card
+  .album.card-image.waves-effect.waves-block.waves-light
+    = link_to album_path(album) do
+      = image_tag album.photos.first.image_url(:album_title)
+  .card-content
+    = link_to album_path(album), class: 'album card-title active grey-text text-darken-4' do
+      #{album.name.capitalize}
+    .album-icon.activator
+      %i.mdi-action-info-outline
+  .card-reveal
+    %span.album.card-title.activator.grey-text.text-darken-4
+      #{album.name.capitalize}
+      %i.mdi-navigation-close.right
+    .col.s12
+      - album.viewers.each do |viewer|
+        = image_tag(viewer.avatar.url(:thumb), {"data-delay" => "50", "data-position" => "bottom", "data-tooltip" => "#{viewer.user_name}", class: 'connection circle tooltipped'})
+      %a.link.right{:href => "#"} Show more

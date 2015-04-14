@@ -1,4 +1,19 @@
-%div
-  %h1 Albums
-  = render @albums
-  = link_to 'New Album', new_album_path if user_signed_in?
+%main
+  .albums_container
+    - if user_signed_in? && current_user.shared_albums
+      .shared.album_cards
+        %a.title.grey-text.text-darken-4{:href => "#!"} Shared with you
+        = render @shared_albums
+      #shared_paginator
+        = paginate @shared_albums, :remote => true, :param_name => 'shared_albums'
+    .users.album_cards
+      - if user_signed_in? && current_user.shared_albums
+        .albums_divider
+      %a.title.grey-text.text-darken-4{:href => "#!"} Your albums
+      = render @user_albums
+      - if user_signed_in?
+        .floating-action-btn
+          = link_to new_album_path, class: 'btn-floating btn-large red' do
+            %i.large.mdi-content-add
+    #paginator
+      = paginate @user_albums, :remote => true, :param_name => 'user_albums'
