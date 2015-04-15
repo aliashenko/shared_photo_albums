@@ -1,18 +1,20 @@
 %main
   .albums_container
     - if user_signed_in? && current_user.shared_albums
-      %a.title.grey-text.text-darken-4{:href => "#!"} Shared with you
+      .album_title.grey-text.text-darken-4
+        Shared with you
       .shared.album_cards
         = render @shared_albums
       #shared_paginator
         = paginate @shared_albums, :remote => true, :param_name => 'shared_albums'
     - if user_signed_in? && current_user.shared_albums
       .albums_divider
-    %a.title.grey-text.text-darken-4{:href => "#!"} Your albums
     - if user_signed_in?
-      .add_album.floating-action-btn
-        = link_to(new_album_path, {"data-delay" => "50", "data-position" => "top", "data-tooltip" => "Add Album", class: 'btn-floating btn-large red tooltipped'}) do
-          %i.large.mdi-content-add
+      .album_title.grey-text.text-darken-4
+        Your albums
+        .floating-action-btn
+          = link_to(new_album_path, {"data-delay" => "50", "data-position" => "left", "data-tooltip" => "Add Album", class: 'btn-floating btn-large red tooltipped'}) do
+            %i.large.mdi-content-add
     .users.album_cards
       = render @user_albums
     #paginator
