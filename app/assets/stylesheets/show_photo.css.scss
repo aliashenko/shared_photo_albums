@@ -1,0 +1,38 @@
+.photo_segment {
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+.photo_segment .avatar-img {
+  margin: 0px 0px -5px 10px;
+}
+
+.pa_album_title {
+  margin-top: 20px;
+  font-size: 24px;
+  text-transform: capitalize;
+}
+
+img.fullsize {
+  padding-top: 20px;
+  margin: 10px auto; 
+}
+
+.arrow {
+  position: absolute !important;
+  height: 100%;
+  top: 0px;
+}
+
+.arrow.next {
+  right: 0px;
+}
+
+.arrow.previous {
+  left: 0px;
+}
+
+i.arrow_icon {
+  top: 40%;
+}

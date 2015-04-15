@@ -1,2 +1,13 @@
-= render @photo
-= link_to 'Back', album_path(@album)
+%main
+  .photo_segment
+    - if @photo.previous_in_album
+      = link_to album_photo_path(@album, @photo.previous_in_album), class: 'arrow previous waves-effect' do
+        %i.large.arrow_icon.mdi-hardware-keyboard-arrow-left.waves-effect
+    - if @photo.next_in_album
+      = link_to album_photo_path(@album, @photo.next_in_album), class: 'arrow next waves-effect' do
+        %i.large.arrow_icon.mdi-hardware-keyboard-arrow-right.waves-effect
+    = image_tag @photo.image.url, class: "fullsize" if @photo.image?
+    .pa_album_title
+      = link_to "#{@album.name}", album_path(@album), class: "grey-text text-darken-4"
+      = link_to user_path(@album.owner), class: "grey-text text-darken-4" do
+        = image_tag(@album.owner.avatar.thumb.url, {"data-delay" => "50", "data-position" => "bottom", "data-tooltip" => "#{@album.owner.user_name}", class: "avatar-img tooltipped"})

@@ -8,7 +8,7 @@
       #{@album.name.capitalize}
     %p
       = link_to user_path(@album.owner), class: "grey-text text-darken-4" do
-        %img.avatar-img{:alt => "#{@album.owner.name}", :src => "#{@album.owner.avatar}"}/
+        = image_tag(@album.owner.avatar.thumb.url, class: 'avatar-img')
       - if current_user == @album.owner
         created #{@album.created_at.to_date}
       - else

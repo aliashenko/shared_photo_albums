@@ -33,13 +33,13 @@ ready = function() {
   });
 
   $('.minimize_images').resizeimage();
+  $('.fullsize').resizeimage({minimize: false});
   $('.dropdown-button').dropdown({hover: false, alignment: 'right', constrain_width: false});
 
   $(document).on('click', '.mdi-content-clear', function() {
     var $album_viewers = $('#share_album_album_viewers');
     var user_ids = $album_viewers.val().split(' ');
     user_ids.splice( $.inArray($(this).parent().data('id').toString(), user_ids), 1 );
-    console.log(user_ids);
     $album_viewers.val(user_ids.join(' '));
     $(this).parent().remove();
   });

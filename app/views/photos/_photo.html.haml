@@ -1,2 +1,3 @@
 .image
-  = image_tag photo.image_url(:thumb) if photo.image?
+  = link_to album_photo_path(@album, photo) do
+    = image_tag photo.image.thumb.url, class: 'minimize_images' if photo.image?
