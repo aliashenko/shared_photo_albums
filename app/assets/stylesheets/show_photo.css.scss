@@ -14,9 +14,15 @@
   text-transform: capitalize;
 }
 
+.photo {
+  display: inline-block;
+  position: relative;
+  margin: 10px auto;
+}
+
 img.fullsize {
-  padding-top: 20px;
-  margin: 10px auto; 
+  max-height: 90vh;
+  max-width: 90%;
 }
 
 .arrow {
@@ -35,4 +41,23 @@ img.fullsize {
 
 i.arrow_icon {
   top: 40%;
+}
+
+.delete_photo {
+  display: inline-block;
+  position: absolute;
+  opacity: 0.8;
+  right: 10%;
+  top: 10px;
+}
+
+.fullsize.delete_photo:hover {
+  opacity: 1;
+}
+
+i.mdi-action-delete {
+  background-color: white;
+  width: 30px;
+  height: 30px;
+  color: black;
 }

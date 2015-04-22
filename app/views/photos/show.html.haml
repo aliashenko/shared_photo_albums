@@ -6,7 +6,10 @@
     - if @photo.next_in_album
       = link_to album_photo_path(@album, @photo.next_in_album), class: 'arrow next waves-effect' do
         %i.large.arrow_icon.mdi-hardware-keyboard-arrow-right.waves-effect
-    = image_tag @photo.image.url, class: "fullsize" if @photo.image?
+    .photo
+      = image_tag @photo.image.url, class: 'fullsize' if @photo.image?
+      = link_to album_photo_path(@album, @photo), method: :delete, data: { confirm: 'Are you sure?' }, class: 'delete_photo' do
+        %i.mdi-action-delete.circle
     .pa_album_title
       = link_to "#{@album.name}", album_path(@album), class: "grey-text text-darken-4"
       = link_to user_path(@album.owner), class: "grey-text text-darken-4" do
