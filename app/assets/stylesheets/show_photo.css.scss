@@ -18,11 +18,12 @@
   display: inline-block;
   position: relative;
   margin: 10px auto;
+  max-width: 90%;
 }
 
 img.fullsize {
   max-height: 90vh;
-  max-width: 90%;
+  max-width: 100%;
 }
 
 .arrow {
@@ -44,20 +45,22 @@ i.arrow_icon {
 }
 
 .delete_photo {
-  display: inline-block;
+  display: none;
   position: absolute;
   opacity: 0.8;
-  right: 10%;
+  right: 20px;
   top: 10px;
 }
 
-.fullsize.delete_photo:hover {
+.photo .delete_photo:hover {
   opacity: 1;
 }
 
 i.mdi-action-delete {
   background-color: white;
+  padding: 5px;
   width: 30px;
   height: 30px;
-  color: black;
+  color: #263238;
+  font-size: larger;
 }

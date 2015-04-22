@@ -26,11 +26,11 @@ ready = function() {
     $('.user_avatar_edit').hide();
   });
 
-  // $('.fullsize').hover(function() {
-  //   $('.delete_photo').show();
-  // }, function() {
-  //   $('.delete_photo').hide();
-  // });
+  $('.photo').hover(function() {
+    $('.delete_photo').show();
+  }, function() {
+    $('.delete_photo').hide();
+  });
 
   $('.profile_background').hover(function() {
     $('.profile_background_edit').show();
