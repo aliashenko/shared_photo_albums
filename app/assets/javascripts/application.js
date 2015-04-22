@@ -26,6 +26,12 @@ ready = function() {
     $('.user_avatar_edit').hide();
   });
 
+  // $('.fullsize').hover(function() {
+  //   $('.delete_photo').show();
+  // }, function() {
+  //   $('.delete_photo').hide();
+  // });
+
   $('.profile_background').hover(function() {
     $('.profile_background_edit').show();
   }, function() {
@@ -33,7 +39,6 @@ ready = function() {
   });
 
   $('.minimize_images').resizeimage();
-  $('.fullsize').resizeimage({minimize: false});
   $('.dropdown-button').dropdown({hover: false, alignment: 'right', constrain_width: false});
 
   $(document).on('click', '.mdi-content-clear', function() {
