@@ -48,9 +48,10 @@ class PhotosController < ApplicationController
   end
 
   def destroy
+    @previous_photo = @photo.previous_in_album
     @photo.destroy
     respond_to do |format|
-      format.html { redirect_to @album, notice: 'Photo was successfully destroyed.' }
+      format.html { redirect_to album_photo_path(@album, @previous_photo) }
       format.json { head :no_content }
     end
   end
