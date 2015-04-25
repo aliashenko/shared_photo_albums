@@ -1,15 +1,29 @@
-.container
-  %h2 Log in
-  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-    .input-field
-      = f.label :email
-      = f.email_field :email, autofocus: true
-    .input-field
-      = f.label :password
-      = f.password_field :password, autocomplete: "off"
-    - if devise_mapping.rememberable?
-      .checkbox
-        = f.check_box :remember_me, :class => "checkbox"
-        = f.label :remember_me
-    = f.submit "Log in", :class => "btn"
-  = render "devise/shared/links"
+.container.z-depth-1
+  .row
+    .col.offset-s3.album_title.grey-text.text-darken-4 Login
+  .row
+    = form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'col s6 offset-s3'}) do |f|
+      .row
+        .input-field
+          %i.mdi-communication-email.prefix
+          = f.label :email
+          = f.email_field :email, autofocus: true
+      .row
+        .input-field
+          %i.mdi-action-lock.prefix
+          = f.label :password
+          = f.password_field :password, autocomplete: "off"
+      .row
+        - if devise_mapping.rememberable?
+          .checkbox.col.s6
+            = f.check_box :remember_me, :class => "checkbox"
+            = f.label :keep_me_logged_in
+        - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
+          .col.s6
+            = link_to "I forgot my password", new_password_path(resource_name), :class => 'right'
+      .row
+        .col.s6.offset-s3
+          = f.submit "Login", :class => "btn-large col s12"
+  .row
+    .col.s6.offset-s3
+      = render "devise/shared/links"

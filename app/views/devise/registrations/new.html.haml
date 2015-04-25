@@ -1,16 +1,28 @@
-.container
-  %legend Sign up
-  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-    = devise_error_messages!
-    %input{:type => "hidden", name: 'album_id', :value => params[:album_id]}
-    .input-field
-      = f.label :email
-      = f.email_field :email, autofocus: true
-    .input-field
-      = f.label "Password (#{@minimum_password_length} characters minimum)"
-      = f.password_field :password, autocomplete: "off"
-    .input-field
-      = f.label :password_confirmation
-      = f.password_field :password_confirmation, autocomplete: "off"
-    = f.submit "Sign up", :class => "btn"
-  = render "devise/shared/links"
+.container.z-depth-1
+  .row
+    .col.offset-s3.album_title.grey-text.text-darken-4 Sign up
+  .row
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'col s6 offset-s3'}) do |f|
+      = devise_error_messages!
+      %input{:type => "hidden", name: 'album_id', :value => params[:album_id]}
+      .row
+        .input-field
+          %i.mdi-communication-email.prefix
+          = f.label :email
+          = f.email_field :email, autofocus: true
+      .row
+        .input-field
+          %i.mdi-action-lock.prefix
+          = f.label "Password (#{@minimum_password_length} characters minimum)"
+          = f.password_field :password, autocomplete: "off"
+      .row
+        .input-field
+          %i.mdi-action-lock.prefix
+          = f.label :password_confirmation
+          = f.password_field :password_confirmation, autocomplete: "off"
+      .row
+        .col.s6.offset-s3
+          = f.submit "Sign up", :class => "btn-large col s12"
+  .row
+    .col.s6.offset-s3
+      = render "devise/shared/links"
