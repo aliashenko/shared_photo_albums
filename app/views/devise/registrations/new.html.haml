@@ -1,28 +1,24 @@
-.container.z-depth-1
+.login-container.z-depth-1
   .row
-    .col.offset-s3.album_title.grey-text.text-darken-4 Sign up
-  .row
-    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'col s6 offset-s3'}) do |f|
+    .login-title Sign up
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'col s12 m12 l8 offset-l2'}) do |f|
       = devise_error_messages!
       %input{:type => "hidden", name: 'album_id', :value => params[:album_id]}
       .row
         .input-field
           %i.mdi-communication-email.prefix
           = f.label :email
-          = f.email_field :email, autofocus: true
+          = f.email_field :email, autofocus: true, :class => "validate"
       .row
         .input-field
           %i.mdi-action-lock.prefix
-          = f.label "Password (#{@minimum_password_length} characters minimum)"
-          = f.password_field :password, autocomplete: "off"
+          = f.label "Password", class: "active"
+          = f.password_field :password, autocomplete: "off", placeholder: "(#{@minimum_password_length} characters minimum)"
       .row
         .input-field
           %i.mdi-action-lock.prefix
           = f.label :password_confirmation
           = f.password_field :password_confirmation, autocomplete: "off"
-      .row
-        .col.s6.offset-s3
-          = f.submit "Sign up", :class => "btn-large col s12"
-  .row
-    .col.s6.offset-s3
-      = render "devise/shared/links"
+      .actions
+        = f.submit "Sign up", :class => "btn-large col s6 offset-s3"
+  = render "devise/shared/links"

@@ -1,14 +1,11 @@
-.row
-  .col.s6
-    - if controller_name != 'sessions'
-      = link_to "Log in", new_session_path(resource_name), class: 'btn-large teal lighten-5 col s12 black-text'
-    - if devise_mapping.registerable? && controller_name != 'registrations'
-      = link_to "Sign up", new_registration_path(resource_name), class: 'btn-large teal lighten-5 col s12 black-text'
-  .col.s6
-    - if devise_mapping.omniauthable?
-      - resource_class.omniauth_providers.each do |provider|
-        = link_to omniauth_authorize_path(resource_name, provider), class: 'google-button btn-large teal lighten-5 col s12 black-text' do
-          %span Sign in with google
-- if devise_mapping.confirmable? && controller_name != 'confirmations'
-  = link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name)
-  %br/
+.divider
+.devise-shared-links
+  - if controller_name != 'sessions'
+    = link_to "Log in", new_session_path(resource_name), class: 'btn teal lighten-5 black-text'
+  - if devise_mapping.registerable? && controller_name != 'registrations'
+    = link_to "Sign up", new_registration_path(resource_name), class: 'btn teal lighten-5 black-text'
+
+  - if devise_mapping.omniauthable?
+    - resource_class.omniauth_providers.each do |provider|
+      = link_to omniauth_authorize_path(resource_name, provider), class: 'google-button btn teal lighten-5 black-text' do
+        %span Sign in with google

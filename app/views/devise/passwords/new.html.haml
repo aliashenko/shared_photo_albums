@@ -1,10 +1,12 @@
-.container
-  %h2 Forgot your password?
-  = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-    = devise_error_messages!
-    .input-field
-      = f.label :email
-      %br/
-      = f.email_field :email, autofocus: true
-    = f.submit "Send me reset password instructions", :class => "btn"
+.login-container.z-depth-1
+  .login-title Forgot your password?
+  .row
+    = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: 'col s12 m12 l8 offset-l2'}) do |f|
+      = devise_error_messages!
+      .input-field
+        %i.mdi-communication-email.prefix
+        = f.label :email
+        = f.email_field :email, autofocus: true
+      .actions
+        = f.submit "Reset password", :class => "btn"
   = render "devise/shared/links"
