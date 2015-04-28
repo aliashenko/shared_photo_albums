@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require jquery.turbolinks
 //= require materialize-sprockets
 //= require dropzone
 //= require jquery-ui/autocomplete
@@ -42,6 +43,7 @@ ready = function() {
 
   $('.minimize_images').resizeimage();
   $('.dropdown-button').dropdown({hover: false, alignment: 'right', constrain_width: false});
+  $('.button-collapse').sideNav();
 
   $('#new_user').validate({
     errorElement: "em",

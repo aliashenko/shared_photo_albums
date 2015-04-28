@@ -1,5 +1,6 @@
 .navbar-fixed nav {
   background-color: #37474f;
+  overflow: visible;
 }
 
 .avatar-img {
@@ -9,7 +10,8 @@
 }
 
 .nav-wrapper .avatar-img {
-  margin: 15px auto;
+  margin-top: 15px;
+  margin-bottom: -11px;
 }
 
 .brand-logo {
@@ -18,4 +20,12 @@
 
 .dropdown-content li {
   font-size: 1em;
+}
+
+ul#mobile {
+  font-weight: 500;
+}
+
+ul#mobile .collapsible-body {
+  font-weight: 400;
 }

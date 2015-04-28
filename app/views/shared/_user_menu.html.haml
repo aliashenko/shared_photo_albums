@@ -6,17 +6,29 @@
     %li
       = link_to 'Sign out', destroy_user_session_path, :method => :delete
 
-%ul#nav-mobile.right.hide-on-med-and-down
-  %li
-    = link_to 'Share', root_path if user_signed_in?
+%a.button-collapse{"data-activates" => "mobile", :href => "#"}
+  %i.mdi-navigation-menu
+
+%ul#mobile.side-nav
+  = render :partial => 'shared/menu_links'
   - if user_signed_in?
-    %li
-      = link_to 'Albums', albums_path
+    %li.no-padding
+    %ul.collapsible.collapsible-accordion
+      %li
+        %a.collapsible-header
+          = image_tag(current_user.avatar.thumb.url, class: 'avatar-img')
+          = current_user.user_name
+          %i.mdi-navigation-arrow-drop-down
+        .collapsible-body
+          %ul
+            %li
+              = link_to 'View profile', user_path(current_user)
+            %li
+              = link_to 'Sign out', destroy_user_session_path, :method => :delete
+
+%ul.right.hide-on-med-and-down
+  = render :partial => 'shared/menu_links'
+  - if user_signed_in?
     %li
       %a.dropdown-button{"data-activates" => "dropdown1"}
         = image_tag(current_user.avatar.thumb.url, class: 'avatar-img')
-  - else
-    %li
-      = link_to 'Sign in', new_user_session_path
-    %li
-      = link_to 'Sign up', new_user_registration_path
