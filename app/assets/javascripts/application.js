@@ -16,6 +16,8 @@
 //= require materialize-sprockets
 //= require dropzone
 //= require jquery-ui/autocomplete
+//= require jquery.validate
+//= require jquery.validate.additional-methods
 //= require_tree .
 
 var ready;
@@ -40,6 +42,30 @@ ready = function() {
 
   $('.minimize_images').resizeimage();
   $('.dropdown-button').dropdown({hover: false, alignment: 'right', constrain_width: false});
+
+  $('#new_user').validate({
+    errorElement: "em",
+    rules: {
+      'user[password]': {
+        required: true,
+        minlength: 8
+      },
+      'user[email]': {
+        required: true,
+        email: true
+      }
+    },
+    messages: {
+      'user[password]': {
+          required: "Required Field",
+          minlength: "At least 8 characters required"
+      },
+      'user[email]': {
+          required: "Required Field",
+          email: "Invalid email format"
+      }
+    }
+  });
 
   $(document).on('click', '.mdi-content-clear', function() {
     var $album_viewers = $('#share_album_album_viewers');

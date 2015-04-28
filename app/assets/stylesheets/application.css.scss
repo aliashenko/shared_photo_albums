@@ -103,3 +103,15 @@ a.link.right {
   margin-bottom: 50px;
   padding-bottom: 50px;
 }
+
+em.error {
+  color: red !important;
+  font-weight: normal !important;
+  margin-left: 50px;
+}
+
+input.error {
+  color: red !important;
+  border-bottom: 1px solid red;
+  box-shadow: 0 1px 0 0 red;
+}

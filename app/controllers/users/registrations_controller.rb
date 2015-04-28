@@ -1,10 +1,14 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   def create
     build_resource(sign_up_params)
-    @album = Album.find(params[:album_id]) if params[:album_id]
 
     resource.save
-    @album.viewers << resource
+
+    unless params[:album_id].empty?
+      @album = Album.find(params[:album_id])
+      @album.viewers << resource
+    end
+
     yield resource if block_given?
     if resource.persisted?
       if resource.active_for_authentication?
