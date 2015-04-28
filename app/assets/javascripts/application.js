@@ -50,6 +50,10 @@ ready = function() {
         required: true,
         minlength: 8
       },
+      'user[password_confirmation]': {
+        required: true,
+        minlength: 8
+      },
       'user[email]': {
         required: true,
         email: true
@@ -57,12 +61,16 @@ ready = function() {
     },
     messages: {
       'user[password]': {
-          required: "Required Field",
-          minlength: "At least 8 characters required"
+        required: "Required Field",
+        minlength: "At least 8 characters required"
+      },
+      'user[password_confirmation]': {
+        required: "Required Field",
+        minlength: "At least 8 characters required"
       },
       'user[email]': {
-          required: "Required Field",
-          email: "Invalid email format"
+        required: "Required Field",
+        email: "Invalid email format"
       }
     }
   });

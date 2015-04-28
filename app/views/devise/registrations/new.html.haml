@@ -12,8 +12,8 @@
       .row
         .input-field
           %i.mdi-action-lock.prefix
-          = f.label "Password", class: "active"
-          = f.password_field :password, autocomplete: "off", placeholder: "(#{@minimum_password_length} characters minimum)"
+          = f.label "Password"
+          = f.password_field :password, autocomplete: "off"
       .row
         .input-field
           %i.mdi-action-lock.prefix

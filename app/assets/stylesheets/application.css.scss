@@ -115,3 +115,8 @@ input.error {
   border-bottom: 1px solid red;
   box-shadow: 0 1px 0 0 red;
 }
+
+div#error_explanation {
+  color: red;
+  font-style: italic;
+}
