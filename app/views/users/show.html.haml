@@ -1,16 +1,3 @@
-%p
-  %strong Name:
-  = @user.name
-%div
-  = link_to 'Show albums', albums_path
-  |
-  = link_to 'Edit User', edit_user_registration_path if can? :edit, @user
-  - if can? :edit, @user
-    |
-  = link_to 'Back to users', users_path
-  |
-  = link_to 'Shared Albums', user_shared_albums_path(user_id: @user.id)
-
 %main
   .container.z-depth-1.user_profile
     .profile_header
@@ -23,43 +10,32 @@
           %i.circle.user_avatar_edit.medium.mdi-image-camera-alt
       .user_name
         = @user.user_name
-      .connect
-        - unless (@user == current_user)
-          = link_to users_path, class: 'btn' do
-            %i.mdi-social-person-add
-            Connect
+      - if @user.name && @user.email
+        .contant-information
+          %i.mdi-communication-email
+          Email:
+          #{@user.email}
+      - if can? :manage, @user
+        .edit-user.floating-action-btn
+          = link_to edit_user_registration_path, class: 'btn-floating btn-large red' do
+            %i.large.mdi-editor-mode-edit
     .profile_content
       .row
-        .col.s6
-          .card.small
-            .information.card-content
-              %span.card-title.activator.grey-text.text-darken-4
-                Contact information
-                - if can? :edit, @user
-                  %a.modal-trigger{:href => "#edit_user_information"}
-                    %i.mdi-editor-mode-edit.right
-              %p
-                %table
-                  %tbody
-                    %tr
-                      %td
-                        %i.mdi-communication-email
-                      %td Email
-                      %td #{@user.email}
-              %p
-                = link_to 'Show shared albums', albums_path
-            
-        .col.s6
+        .col.s12
           .card
-            .connections.card-content
-              %span.card-title.activator.grey-text.text-darken-4
-                Connections
-                - if can? :edit, @user
-                  %a.modal-trigger{:href => "#search_connections"}
-                    %i.mdi-social-person-add.right
-                .col.s12
-                  = image_tag(@user.avatar.thumb.url, {"data-delay" => "50", "data-position" => "bottom", "data-tooltip" => "User Name", class: 'connection circle tooltipped'})
-                  = image_tag(@user.avatar.thumb.url, {"data-delay" => "50", "data-position" => "bottom", "data-tooltip" => "User Name", class: 'connection circle tooltipped'})
-                  = image_tag(@user.avatar.thumb.url, {"data-delay" => "50", "data-position" => "bottom", "data-tooltip" => "User Name", class: 'connection circle tooltipped'})
-                  = image_tag(@user.avatar.thumb.url, {"data-delay" => "50", "data-position" => "bottom", "data-tooltip" => "User Name", class: 'connection circle tooltipped'})
-                  %a.link.right{:href => "#"} Show more
+            .shared-album.card-content
+              - unless (@user == current_user)
+                .album_title.grey-text.text-darken-4
+                  Shared albums
+                - unless @user.shared_albums.any?
+                  .request
+                    = link_to users_path, class: 'btn' do
+                      %i.mdi-image-photo-album
+                      Request albums
+                - else
+                  = link_to 'Show shared albums', user_shared_albums_path(user_id: @user.id)
+              - else
+                .album_title.grey-text.text-darken-4
+                  Your albums
+                = link_to 'Show albums', albums_path
+            
