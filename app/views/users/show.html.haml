@@ -1,6 +1,6 @@
 %main
-  .container.z-depth-1.user_profile
-    .profile_header
+  .container.user_profile
+    .profile_header.z-depth-1
       .profile_background
         - if can? :edit, @user
           %a.btn-flat.profile_background_edit{:href => "#"} Change Cover
@@ -19,23 +19,22 @@
         .edit-user.floating-action-btn
           = link_to edit_user_registration_path, class: 'btn-floating btn-large red' do
             %i.large.mdi-editor-mode-edit
-    .profile_content
+    .profile_content.z-depth-1
       .row
         .col.s12
-          .card
-            .shared-album.card-content
-              - unless (@user == current_user)
-                .album_title.grey-text.text-darken-4
-                  Shared albums
-                - unless @user.shared_albums.any?
-                  .request
-                    = link_to users_path, class: 'btn' do
-                      %i.mdi-image-photo-album
-                      Request albums
-                - else
-                  = link_to 'Show shared albums', user_shared_albums_path(user_id: @user.id)
+          .shared-album.card-content
+            - unless (@user == current_user)
+              .album_title.grey-text.text-darken-4
+                Shared albums
+              - unless Album.shared_with_user(@user).any?
+                .request
+                  = link_to users_path, class: 'btn' do
+                    %i.mdi-image-photo-album
+                    Request albums
               - else
-                .album_title.grey-text.text-darken-4
-                  Your albums
-                = link_to 'Show albums', albums_path
-            
+                .shared.album_cards
+                  = render :partial => 'albums/album', collection: Album.shared_with_user(@user)
+            - else
+              .album_title.grey-text.text-darken-4
+                Your albums
+              = render :partial => 'albums/album', collection: @user.albums

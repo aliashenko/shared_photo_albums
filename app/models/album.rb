@@ -6,4 +6,8 @@ class Album < ActiveRecord::Base
 
   validates_presence_of :name
   validates_presence_of :owner_id
+
+  scope :shared_with_user, lambda { |owner|
+    where(owner: owner).includes(:viewers)
+  }
 end

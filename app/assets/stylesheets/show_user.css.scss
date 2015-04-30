@@ -60,8 +60,7 @@ img.profile_picture {
 .contant-information {
   font-size: 1.2em;
   font-weight: 300;
-  margin-top: 30px;
-  margin-left: 20px;
+  margin: 30px 0 30px 20px;
 }
 
 .edit-user.floating-action-btn {
@@ -72,6 +71,12 @@ img.profile_picture {
 
 .edit-user.floating-action-btn:hover {
   opacity: 1;
+}
+
+.profile_content {
+  padding: 20px 0 20px 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .user_profile {
