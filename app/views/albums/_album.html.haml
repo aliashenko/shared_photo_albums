@@ -5,6 +5,10 @@
   .card-content
     = link_to album_path(album), class: 'album card-title active grey-text text-darken-4' do
       #{album.name.capitalize}
+    - if can? :manage, album
+      .album-icon.share
+        = link_to share_album_path(album), remote: true do
+          %i.mdi-social-share
     .album-icon.activator
       %i.mdi-action-info-outline
   .card-reveal

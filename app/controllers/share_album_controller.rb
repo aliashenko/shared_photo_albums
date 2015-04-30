@@ -15,7 +15,6 @@ class ShareAlbumController < ApplicationController
     @viewers = User.where(id: @viewers_ids)
     @album.viewers = @viewers
     @emails = params[:share_album][:emails].split(" ")
-    byebug
 
     unless @emails.empty?
       @emails.each do |email|
@@ -23,7 +22,7 @@ class ShareAlbumController < ApplicationController
       end
     end
 
-    redirect_to @album
+    redirect_to :back
   end
 
   def viewers

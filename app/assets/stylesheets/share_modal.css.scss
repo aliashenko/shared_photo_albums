@@ -1,3 +1,14 @@
+.share-album-title {
+  font-size: 1.6rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-align: center;
+  height: 66px;
+  width: 100%;
+  margin: 6px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
 .ui-front {
   z-index: 1001 !important;
 }

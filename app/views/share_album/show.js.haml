@@ -1,5 +1,5 @@
 :plain
   var $modal = "#{escape_javascript(render(:partial => 'share_modal', locals: { album: @album, viewers: @viewers }))}"
   $('#share-album').remove();
-  $('.pa_album').append($modal);
+  $('main').append($modal);
   $('#share-album').openModal();

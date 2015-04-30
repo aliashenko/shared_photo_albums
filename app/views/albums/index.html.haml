@@ -1,3 +1,7 @@
+%script#name_block{:type => "text/html"}
+  .name-block{ data: { id: "{{ id }}" } }
+    {{ name }}
+    %i.mdi-content-clear
 %main
   .albums_container
     - if user_signed_in? && current_user.shared_albums
