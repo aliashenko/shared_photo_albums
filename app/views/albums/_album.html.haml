@@ -16,6 +16,12 @@
       #{album.name.capitalize}
       %i.mdi-navigation-close.right
     .col.s12
-      - album.viewers.each do |viewer|
-        = image_tag(viewer.avatar.url(:thumb), {"data-delay" => "50", "data-position" => "bottom", "data-tooltip" => "#{viewer.user_name}", class: 'connection circle tooltipped'})
-      %a.link.right{:href => "#"} Show more
+      - unless album.viewers.any?
+        .shared-title No viewers
+      - else
+        .shared-title Shared with #{album.viewers.count} users
+        - album.viewers.first(4).each do |viewer|
+          = link_to user_path(viewer) do
+            = image_tag(viewer.avatar.url(:thumb), {"data-delay" => "50", "data-position" => "bottom", "data-tooltip" => "#{viewer.user_name}", class: 'connection circle tooltipped'})
+        - if album.viewers.size > 4
+          = link_to 'Show more', album_viewers_path(album), remote: true, class: 'link right'

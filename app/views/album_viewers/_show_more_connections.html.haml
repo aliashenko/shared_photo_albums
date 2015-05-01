@@ -1,0 +1,8 @@
+#show-more.modal.modal-fixed-footer
+  .modal-content
+    .share-album-title "#{album.name}" shared with:
+    - album.viewers.each do |viewer|
+      = link_to user_path(viewer) do
+        = image_tag(viewer.avatar.url(:thumb), {"data-delay" => "50", "data-position" => "bottom", "data-tooltip" => "#{viewer.user_name}", class: 'connection circle tooltipped'})
+  .modal-footer
+    %a.modal-action.modal-close.waves-effect.waves-green.btn-flat{:href => "#!"} Close

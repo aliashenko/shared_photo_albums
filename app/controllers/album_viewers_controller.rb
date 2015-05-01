@@ -1,13 +1,17 @@
 class AlbumViewersController < ApplicationController
-  before_action :find_user
+  before_action :find_album, only: :show
 
-  def index
-    @shared_albums = @user.shared_albums
+  def show
+    @viewers = @album.viewers
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   private
 
-  def find_user
-    @user = User.find(params[:user_id])
+  def find_album
+    @album = Album.find(params[:album_id])
   end
 end

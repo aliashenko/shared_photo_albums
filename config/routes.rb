@@ -15,14 +15,11 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show]
   resources :albums do
     resources :photos
+    get '/viewers', to: 'album_viewers#show'
   end
   resources :share_album do
     member do
       get 'viewers'
     end
-  end
-
-  resources :users do
-    get '/shared_albums', to: 'album_viewers#index'
   end
 end

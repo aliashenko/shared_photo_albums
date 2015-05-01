@@ -1,0 +1,5 @@
+:plain
+  var $modal = "#{escape_javascript(render(:partial => 'show_more_connections', locals: { album: @album }))}"
+  $('#show-more').remove();
+  $('main').append($modal);
+  $('#show-more').openModal();
